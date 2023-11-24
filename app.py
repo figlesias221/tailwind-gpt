@@ -21,19 +21,9 @@ if "messages" not in st.session_state.keys():
 def load_data():
     with st.spinner(text="Loading data..."):
         pinecone_index = pinecone.Index("tailwind-ada")
-        # vector_store = PineconeVectorStore(pinecone_index=pinecone_index)
-        # service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are an expert on TailwindCSS and your job is to answer technical questions. Assume that all questions are related to TailwindCSS. Keep your answers technical and based on facts – do not hallucinate features."))
-        # index = VectorStoreIndex.from_vector_store(vector_store=vector_store, service_context=service_context)
-        # return index
-        reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
-        docs = reader.load_data()
-
         vector_store = PineconeVectorStore(pinecone_index=pinecone_index)
-        storage_context = StorageContext.from_defaults(vector_store=vector_store)
-        service_context = ServiceContext.from_defaults(embed_model=OpenAIEmbedding())
-        index = VectorStoreIndex.from_documents(
-            docs, storage_context=storage_context
-        )
+        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are an expert on TailwindCSS and your job is to answer technical questions. Assume that all questions are related to TailwindCSS. Keep your answers technical and based on facts – do not hallucinate features."))
+        index = VectorStoreIndex.from_vector_store(vector_store=vector_store, service_context=service_context)
         return index
    
 
