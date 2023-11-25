@@ -5,7 +5,6 @@ import openai
 import pinecone
 from llama_index.vector_stores import PineconeVectorStore
 
-
 openai.api_key = st.secrets.openai_key
 pinecone.init(api_key=st.secrets.pinecone_key, environment="gcp-starter")
 
@@ -29,6 +28,7 @@ index = load_data()
 
 chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
 
+
 if prompt := st.chat_input("Your question"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
@@ -43,4 +43,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
             response = chat_engine.chat(prompt)
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
-            st.session_state.messages.append(message) # Add response to message history
+            st.session_state.messages.append(message)
