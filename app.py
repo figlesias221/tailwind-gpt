@@ -27,7 +27,7 @@ def load_data():
 index = load_data()
 
 # index.as_query_engine()
-chat_engine = index.as_chat_engine(chat_mode="reAct", verbose=True)
+chat_engine = index.as_chat_engine(chat_mode="react", verbose=True)
 
 
 if prompt := st.chat_input("Your question"):
