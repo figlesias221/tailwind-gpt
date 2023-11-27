@@ -16,7 +16,7 @@ if "messages" not in st.session_state.keys():
 
 pinecone_index = pinecone.Index("tailwind-hugging")
 vector_store = PineconeVectorStore(pinecone_index=pinecone_index)
-service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are an expert on TailwindCSS and your job is to answer technical questions. Assume that all questions are related to TailwindCSS. Keep your answers technical and based on facts – do not hallucinate features."))
+service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are an expert on TailwindCSS and your job is to answer technical questions only about TailwindCSS. Assume that all questions are related to TailwindCSS. Keep your answers technical and based on facts. Context will be provided in many questions, only use it if it helps you answer the question. DO NOT answer questions that you do not understand or that are not related to TailwindCSS"))
 index = VectorStoreIndex.from_vector_store(vector_store=vector_store, service_context=service_context)
 chat_engine = index.as_chat_engine(chat_mode="react", verbose=True)
 
