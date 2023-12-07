@@ -6,8 +6,6 @@ This repository contains the code and documentation for a project related to Tai
 
 RAG (Retrieval-Augmented Generation) helps address two major issues faced by LLMs (Large Language Models). On one hand, it tackles the lack of sources when answering questions, and on the other, it deals with information becoming outdated. This framework enables LLMs to access the latest information, whether from a database, an internet search on relevant sites, or other sources, and allows them to reference their responses, providing significant added value for users [4]. It particularly excels when focused on knowledge-intensive tasks.
 
-It's worth mentioning that RAG empowers LLMs to respond with "I don't know; I don't have information," which occurs infrequently but is crucial in various use cases to avoid providing inaccurate information. However, the downside is that having a limited data source may lead to responses frequently being in the negative, potentially resulting in an overall negative outcome for the application [4].
-
 Therefore, the focus of this work lies in utilizing RAG (Retrieval-Augmented Generation) alongside LLMs as an added value, rather than relying on LLMs alone. This will be demonstrated through a specific use case: a generative agent knowledgeable in tailwind technology. The step-by-step process for applying this framework to an LLM will be explained, and various tests and experiments will be conducted to measure the performance of different tools within the technologies used, which will be described later in the paper.
 
 ## Project Overview
@@ -49,3 +47,16 @@ Follow these steps to set up and run the project on your local machine:
 ## Demo
 
 ![Demo Diagram](demo.png)
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><img src="https://avatars.githubusercontent.com/figlesias221?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Federico Iglesias</b></sub></a><br /><a href="https://github.com/figlesias221/tailwind-gpt/commits?author=figlesias221" title="Code">💻</a></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/FranRossi?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Francisco Rossi</b></sub></a><br /><a href="https://github.com/figlesias221/tailwind-gpt/commits?author=FranRossi" title="Code">💻</a></td>
+        <td align="center"><img src="https://avatars.githubusercontent.com/frandecu?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Francisco Decurnex</b></sub></a></td>
+
+  </tr>
